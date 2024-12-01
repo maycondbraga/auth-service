@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "Auth Service",
+  "name": "auth-service",
   "type": "collection",
   "ignore": [
     "node_modules",
