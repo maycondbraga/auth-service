@@ -69,47 +69,53 @@ public class User implements UserDetails {
         return id;
     }
 
-    public void setId(UUID id) {
+    public User setId(UUID id) {
         this.id = id;
+        return this;
     }
 
     public String getFullName() {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
+    public User setFullName(String fullName) {
         this.fullName = fullName;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public User setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public User setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+        return this;
     }
 
     public Date getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public User setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+        return this;
     }
 }
