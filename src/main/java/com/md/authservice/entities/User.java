@@ -35,6 +35,10 @@ public class User implements UserDetails {
     @Column(name = "updated_at")
     private Date updatedAt;
 
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)
+    private Role role;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -116,6 +120,15 @@ public class User implements UserDetails {
 
     public User setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+        return this;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public User setRole(Role role) {
+        this.role = role;
         return this;
     }
 }

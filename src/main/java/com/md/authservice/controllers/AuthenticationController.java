@@ -7,6 +7,7 @@ import com.md.authservice.entities.User;
 import com.md.authservice.services.AuthenticationService;
 import com.md.authservice.services.JwtService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,14 +26,14 @@ public class AuthenticationController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) {
+    public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) throws Exception {
         User registeredUser = authenticationService.signup(registerUserDto);
 
         return ResponseEntity.ok(registeredUser);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthTokenDto> authenticate(@RequestBody LoginUserDto loginUserDto) {
+    public ResponseEntity<AuthTokenDto> authenticate(@RequestBody LoginUserDto loginUserDto) throws UsernameNotFoundException {
         User authenticatedUser = authenticationService.login(loginUserDto);
 
         String jwtToken = jwtService.generateToken(authenticatedUser);
